@@ -22,7 +22,7 @@ const Navigation = () => {
     <nav className={`${styles.navbar}container`}style={{display:'flex',justifyContent:'center',alignItems:'center',padding:'10px 0'}}>
 <Link style={brandStyle} to="/">
 
-<img src="/images/handshake.png"alt="logo" style={logoImageStyle}/>
+<img src="/images/logo.png"alt="logo" style={logoImageStyle}/>
 <span style={logoText}>Akash Yadav</span>
 
 </Link>

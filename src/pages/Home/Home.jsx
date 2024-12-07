@@ -1,29 +1,38 @@
 import React from 'react';
 import styles from'./Home.module.css';
-import{Link} from "react-router-dom";
-
+import{Link,useNavigate} from "react-router-dom";
+import Card from '../../components/shared/card/card';
+import Button from '../../components/Button/button';
 const Home = () => {
+    const signInLinkStyle={
+        color:'#0077ff',
+        fontweight:'bold',
+        textDecoration:'none',
+        marginLeft:'10px'
+        
+    };
+    
+
+    const navigate=useNavigate();
+    function startRegister(){
+        navigate('/register');
+        console.log('button clicked.....');
+    }
+
+
     return (
     <div className={styles.cardWrapper}>
-         <div className={styles.card}>
-         <div className={styles.headingwrapper}>
-         <img src="/images/handshake.png"alt="logo"/>
-         <h1 className={styles.heading}>welcome to webrtc</h1>
-         </div>
-         <p  className={styles.text}>We’re working hard to get Codershouse ready for everyone! While we wrap up the finishing youches, we’re adding people gradually to make sure nothing breaks :)</p>
+        <Card title='Welcome to Webrtc!!!'icon='logo'>
+        <p  className={styles.text}>We’re working hard to get Codershouse ready for everyone! While we wrap up the finishing youches, we’re adding people gradually to make sure nothing breaks :)</p>
         < div>
-            <button>
-                <span>
-                    Get Your Username
-                </span>
-                <img src="/images/arrow_forward.png"alt="arrow"/>
-            </button>
+            <Button onClick={startRegister} text='Get your username'/>
         </div>
-        <div>
-            <span>Have an invite text?</span>
-            <Link to="/login/">Sign in</Link>
+        <div className={styles.signinWrapper}>
+            <span className={styles.hasInvite}>Have an invite text?</span>
+            <Link style={signInLinkStyle}to="/login/">Sign in</Link>
         </div>
-    </div> 
+        </Card>
+        
     </div>
      );
 }
